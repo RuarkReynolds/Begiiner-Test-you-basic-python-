@@ -1,0 +1,594 @@
+    from sys import exit
+    import random
+
+
+    def start():
+
+        """This function is for choosing what you want to revise"""
+
+        # create multi-line variable for giving options
+        where_to_start = """Please choose what you would like to revise:
+
+        1.  Basic boolean logic tables
+
+        2.  Using boolean logic exercises to test understanding of logic tables
+
+        3.  Keywords in Python
+
+        4.  Basic data types in Python
+
+        5.  Common escape sequences
+
+        6.  Operators used in Python
+
+        7.  Primer for terms used in object orientated programming
+
+        8.  Using OOP terms to read and write a class
+
+        9.  Quit
+
+        >>>
+        """
+
+        # create variable input for if statements
+        starting = input(where_to_start)
+
+        if starting == "1":
+            logic_tables()
+
+        elif starting == "2":
+            boolean_exercise()
+
+        elif starting == "3":
+            keywords()
+
+        elif starting == "4":
+            data_types()
+
+        elif starting == "5":
+            escape_sequence()
+
+        elif starting == "6":
+            operators()
+
+        elif starting == "7":
+            terms_used()
+
+        elif starting == "8":
+            read_and_write_a_class()
+
+        elif starting == "9":
+            exit_testing()
+
+        else:
+            print("Invalid choice.\n\n")
+            start()
+
+
+    def logic_tables():
+
+        """This function is for self testing basic boolean logic tables"""
+
+        # create dictionary containing basic boolean logic statements
+        logic_statements = {"not False": not False, "not True": not True,
+                            "True or False": True or False, "True or True": True or True,
+                            "False or True": False or True, "False or False": False or False,
+                            "True and False": True and False, "True and True": True and True,
+                            "False and True": False and True, "False and False": False and False,
+                            "not(True or False)": not(True or False), "not(True or True)": not(True or True),
+                            "not(False or True)": not(False or True), "not(False or False)": not(False or False),
+                            "not(True and False)": not(True and False), "not(True and True)": not(True and True),
+                            "not(False and True)": not(False and True), "not(False and False)": not(False and False),
+                            "1 != 0": 1 != 0, "1 != 1": 1 != 1,
+                            "0 != 1": 0 != 1, "0 != 0": 0 != 0,
+                            "1 == 0": 1 == 0, "1 == 1": 1 == 1,
+                            "0 == 1": 0 == 1, "0 == 0": 0 == 0}
+
+        # convert dictionary to list containing key's used
+        question = list(logic_statements.keys())
+
+        for statement in question:
+            print(f"What is the boolean result for: {statement}.")
+            input(">>>")
+            print("The answer is: ", logic_statements[statement])
+            print("")
+
+        start()
+
+
+    def boolean_exercise():
+
+        """This function is for testing your understanding of basic boolean logic tables"""
+
+        prompt = ">>>"
+
+        print("What is: 1 == 1 and 2 == 1")
+        input(prompt)
+        print("The answer is: ", 1 == 1 and 2 == 1)
+        print("")
+        print("What is: 'test' == 'test'")
+        input(prompt)
+        print("The answer is: ", 'test' == 'test')
+        print("")
+        print("What is: 1 == 1 or 2 != 1")
+        input(prompt)
+        print("The answer is: ", 1 == 1 or 2 != 1)
+        print("")
+        print("What is: True and 1 == 1")
+        input(prompt)
+        print("The answer is: ", True and 1 == 1)
+        print("")
+        print("What is: False and 0 != 0")
+        input(prompt)
+        print("The answer is: ", False and 0 != 0)
+        print("")
+        print("What is: True or 1 == 1")
+        input(prompt)
+        print("The answer is: ", True or 1 == 1)
+        print("")
+        print("What is: 1 > 1 or 2 < 1")
+        input(prompt)
+        print("The answer is: ", 1 > 1 or 2 < 1)
+        print("")
+        print("What is: 3 > 1 and 2 < 3")
+        input(prompt)
+        print("The answer is: ", 3 > 1 and 2 < 3)
+        print("")
+        print('What is: "test" == "testing"')
+        input(prompt)
+        print("The answer is: ", "test" == "testing")
+        print("")
+        print("What is: 1 != 0 and 2 == 1")
+        input(prompt)
+        print("The answer is: ", 1 != 0 and 2 == 1)
+        print("")
+        print('What is: "test" != "testing"')
+        input(prompt)
+        print("The answer is: ", "test" != "testing")
+        print("")
+        print("What is: 'test' == 1")
+        input(prompt)
+        print("The answer is: ", "test" == 1)
+        print("")
+        print("What is: not (True and False)")
+        input(prompt)
+        print("The answer is: ", not (True and False))
+        print("")
+        print("What is: not (1 == 1 and 0 != 1)")
+        input(prompt)
+        print("The answer is: ", not (1 == 1 and 0 != 1))
+        print("")
+        print("What is: not (10 == 1 or 1000 == 1000)")
+        input(prompt)
+        print("The answer is: ", not (10 == 1 or 1000 == 1000))
+        print("")
+        print("What is: not (1 != 10 or 3 == 4)")
+        input(prompt)
+        print("The answer is: ", not (1 != 10 or 3 == 4))
+        print("")
+        print('What is: not ("testing" == "testing" and "Zed" == "Cool Guy"')
+        input(prompt)
+        print("The answer is: ", not ("testing" == "testing" and "Zed" == "Cool Guy"))
+        print("")
+        print('What is: 1 == 1 and (not ("testing" == 1 or 1 == 0))')
+        input(prompt)
+        print("The answer is: ", 1 == 1 and (not ("testing" == 1 or 1 == 0)))
+        print("")
+        print('What is: "chunky" == "bacon" and (not (3 == 4 or 3 == 3))')
+        input(prompt)
+        print("The answer is: ", "chunky" == "bacon" and (not (3 == 4 or 3 == 3)))
+        print("")
+        print('What is: 3 == 3 and (not ("testing" == "testing" or "Python" == "Fun"))')
+        input(prompt)
+        print("The answer is: ", 3 == 3 and (not ("testing" == "testing" or "Python" == "Fun")))
+        print("")
+
+        start()
+
+
+    def keywords():
+
+        """This function test's your knowledge system reserved words"""
+
+        print("Describe and give an example of the use of the following key words.\n")
+        print("and")
+        input(">>>")
+        print("Used in logic statements.\nTrue and False == False")
+        print("")
+        print("as")
+        input(">>>")
+        print("Part of the with statement.\nwith x as y:\n\tPass")
+        print("")
+        print("assert")
+        input(">>>")
+        print("Used to ensure that something is true.\nassert False, 'Error!'")
+        print("")
+        print("break")
+        input(">>>")
+        print("Used to stop a loop immediately.\nwhile True:\n\tbreak")
+        print("")
+        print("class")
+        input(">>>")
+        print("Used to tell python you are creating a class.\nclass ClassName(object)")
+        print("")
+        print("continue")
+        input(">>>")
+        print("Do not process part of a loop, but keep going.\nwhile True:\n\tcontinue")
+        print("")
+        print("def")
+        input(">>>")
+        print("Used to tell python you are creating a function.\ndef function_name():\n\tpass")
+        print("")
+        print("del")
+        input(">>>")
+        print("Used with dictionary to delete a key:value map entry.\ndel x[y]")
+        print("")
+        print("elif else")
+        input(">>>")
+        print("used in conjunction with if conditions.\nif x: , elif y: , else: x")
+        print("")
+        print("except")
+        input(">>>")
+        print("If an exception occurs, do this.\nexcept ValueError as e:\n\tprint(e)")
+        print("")
+        print("exec")
+        input(">>>")
+        print("Used to execute a string, as code.\nexec 'print('Hello')'")
+        print("")
+        print("finally")
+        input(">>>")
+        print("Used to tell python that it must run this code no matter what.\nfinally:\n\tpass")
+        print("")
+        print("for")
+        input(">>>")
+        print("Used to tell python to loop over a collection of items.\nfor x in y:\n\tpass")
+        print("")
+        print("from")
+        input(">>>")
+        print("Used when you want to import a specific part of a module.\nfrom x import y")
+        print("")
+        print("global")
+        input(">>>")
+        print("Used in python to declare that you want this variable to be global.\nglobal x")
+        print("")
+        print("import")
+        input(">>>")
+        print("Used to import a module.\nimport x")
+        print("")
+        print("in")
+        input(">>>")
+        print("Forms part of for loop.\nfor x in y:\n\tpass")
+        print("")
+        print("is")
+        input(">>>")
+        print("Can be used to replace == in python.\nTrue is True")
+        print("")
+        print("lambda")
+        input(">>>")
+        print("Used to create a short anonymous function.\ns = lambda y:  x ** x; s(3)")
+        print("")
+        print("not")
+        input(">>>")
+        print("Used in logical statement.\nnot True")
+        print("")
+        print("or")
+        input(">>>")
+        print("Used in logical statement.\nTrue or False")
+        print("")
+        print("pass")
+        input(">>>")
+        print("used to tell python that this is an empty function.\ndef function_name():\n\tpass")
+        print("")
+        print("print")
+        input(">>>")
+        print("Used to tell python to display a string.")
+        print("")
+        print("raise")
+        input(">>>")
+        print("Raise this exception if something goes wrong.\nraise ValueError('No')")
+        print("")
+        print("return")
+        input(">>>")
+        print("Used to exit a function with a specific value.\ndef x():\n\treturn y")
+        print("")
+        print("try")
+        input(">>>")
+        print("Used in conjunction with except, try this code and if there is an exception, go to except.")
+        print("")
+        print("while")
+        input(">>>")
+        print("Used in python to create a while loop.\nwhile x:\n\tpass")
+        print("")
+        print("with")
+        input(">>>")
+        print("Use following expression as a variable.\nwith x as y:\n\tpass")
+        print("")
+        print("yield")
+        input(">>>")
+        print("Used to tell python to pause here and return a value.\ndef x():\n\tyield y; x().next()")
+        print("")
+
+        start()
+
+
+    def data_types():
+
+        """This function tests you're knowledge of basic data types in Python"""
+
+        print("Describe data type and give an example.")
+        print("True")
+        input(">>>")
+        print("Boolean value.       1 == 1 ; True")
+        print("")
+        print("False")
+        input(">>>")
+        print("Boolean value.       1 == 1 ; False")
+        print("")
+        print("None")
+        input(">>>")
+        print("Represents no value or nothing.      x = None")
+        print("")
+        print("byte")
+        input(">>>")
+        print("Data is stored as bytes.        x = b\"hello\"")
+        print("")
+        print("string")
+        input(">>>")
+        print("Textual information you wish to display.     x = \"hello\"")
+        print("")
+        print("int")
+        input(">>>")
+        print("Data is stored as an integer.        x = 100")
+        print("")
+        print("float")
+        input(">>>")
+        print("Data is stored as a decimal.     x = 10.10")
+        print("")
+        print("list")
+        input(">>>")
+        print("Data is stored as a list.        x = [1, 2, 3, 4]")
+        print("")
+        print("dict")
+        input(">>>")
+        print("Data is stored using key:value mapping.      x = {\"x\" : 1, \"y\" : 2}")
+        print("")
+
+        start()
+
+
+    def escape_sequence():
+
+        """This function test's basic knowledge of escape sequences used in Python"""
+
+        print("Describe the use of the escape sequence used in a string.")
+        print(r"\\")
+        input(">>>")
+        print("Used to show a backslash in a string.")
+        print("")
+        print(r"\' or \"")
+        input(">>>")
+        print("Used to show hyphen inside a string.")
+        print("")
+        print(r"\n")
+        input(">>>")
+        print("Used to tell python start a new line.")
+        print("")
+        print(r"\t")
+        input(">>>")
+        print("Used to create an indented string")
+        print("")
+
+        start()
+
+
+    def operators():
+
+        """This function test's basic knowledge of operators used in Python"""
+
+        print("What is the operator and give some ways it is used.")
+        print("+")
+        input(">>>")
+        print("Plus operator.\nUsed: for addition in math 7 + 2 = 9\nand concatenation with strings")
+        print("")
+        print("-")
+        input(">>>")
+        print("Minus operator.\nUsed: subtraction in math 7 - 2 = 5")
+        print("")
+        print("*")
+        input(">>>")
+        print("Multiply operator.\nUsed: multiplication in math 7 * 2 = 14\nand string repetition")
+        print("")
+        print("**")
+        input(">>>")
+        print("Exponent or power of operator.\nUsed: in math 5**5 = 3125")
+        print("")
+        print("/")
+        input(">>>")
+        print("Division operator.\nUsed: divide in math 7 / 2 = 3.5")
+        print("")
+        print("//")
+        input(">>>")
+        print("Floor division operator.\nUsed: floor division in math 7 // 2 = 3")
+        print("")
+        print("%")
+        input(">>>")
+        print("Modulus operator.\nUsed: Give remainder in math 7 // 2 = 1\nand formatting in a string")
+        print("")
+        print("<")
+        input(">>>")
+        print("Less than operator\nUsed boolean expression 1 < 2")
+        print("")
+        print(">")
+        input(">>>")
+        print("Greater than operator\nUsed boolean expression 2 > 1")
+        print("")
+        print("<=")
+        input(">>>")
+        print("Less than or equal operator\nx <= y")
+        print("")
+        print(">=")
+        input(">>>")
+        print("Greater than or equal operator\ny >= x")
+        print("")
+        print("==")
+        input(">>>")
+        print("is equal boolean operator\n1 == 1")
+        print("")
+        print("!=")
+        input(">>>")
+        print("not equal boolean operator\n1 != 2")
+        print("")
+        print("()")
+        input(">>>")
+        print("Parentheses\nUsed: math (1+1)*2 = 4\nfunction and class for parameters\nand a tuple list")
+        print("")
+        print("[]")
+        input(">>>")
+        print("Brackets.\nUsed: To make a list and call from a list")
+        print("")
+        print("{}")
+        input(">>>")
+        print("Curly brackets.\nUsed: Create a dictionary\nas placeholder in a string with format.")
+        print("")
+        print("@")
+        input(">>>")
+        print("Used with a class method\n@class_method()")
+        print("")
+        print(",")
+        input(">>>")
+        print("Comma\nUsed: To separate values in a list\nand parameters in a function or class")
+        print("")
+        print(":")
+        input(">>>")
+        print("Colon\nUsed: To end a function/class\nseparate key:value mapping in a dictionary"
+              "\ncalling from a list [start:end:step]")
+        print("")
+        print(".")
+        input(">>>")
+        print("period\nUsed: To tell python when to call a function from a class")
+        print("")
+        print("=")
+        input(">>>")
+        print("Assignment operator\nUsed:  Equal sign in maths  or x + y = 2\nto assign data to variable x = 'data'")
+        print("")
+        print(";")
+        input(">>>")
+        print("Semi-Colon\nUsed with lambda functions")
+        print("")
+
+        start()
+
+
+    def terms_used():
+
+        """This functions test's basic terms used with a class"""
+
+        # create dictionary for terms used with classes
+        terms = {"class": "Tell python you are making a new data structure or object",
+                 "object": "An instance of a class or the most basic type of thing",
+                 "instance": "When you set a variable to a class (create an object)",
+                 "def": "How you create or define a function",
+                 "self": "Found inside the functions of a class, self is a variable for the instance being accessed",
+                 "inheritance": "The concept that one class can get or inherit traits from another class",
+                 "composition": "The concept that a class can be composed of other classes as parts",
+                 "attribute": "A property a classes have that is from composition and is usually a variable",
+                 "is a": "A phrase used to say that an object inherits from another",
+                 "has a": "A phrase used to say that an object is composed of other objects or has a trait"}
+
+        term_asked = list(terms.keys())
+
+        for term in term_asked:
+            meaning = terms[term]
+            print(f"Meaning of the term:\n{term}")
+            input(">>>")
+            print(f"{meaning}")
+            print("")
+
+        start()
+
+
+    def read_and_write_a_class():
+
+        """This function lets you choose how to test and improve grasp of terms used with classes:
+        Code >>> English Terms
+        English Terms >>> Code"""
+
+        answer = input("Do you want to:\n1. Convert code to terms used or Read Code\n2. Go to main menu\n>>>")
+
+        if answer == "1":
+            start_classes()
+
+        elif answer == "2":
+            start()
+
+        else:
+            print("Invalid")
+            read_and_write_a_class()
+
+
+    def start_classes():
+
+        """This function creates phrases you will be using for how to read or write a class"""
+
+        # create a list of words for use in class setup
+        words = ["green", "yellow", "blue", "black", "pink",
+                 "frank", "john", "george", "pat", "catherine",
+                 "dog", "cat", "mouse", "horse", "cow",
+                 "chair", "table", "speaker", "tv", "video"]
+
+        # create variables to get random words for use in dictionary format holders
+        c = random.choice(words).title()  # title function will capitalise class name
+        c2 = random.choice(words).title()  # title function will capitalise class name
+        d = random.choice(words)
+        d2 = random.choice(words)
+        d3 = random.choice(words)
+
+        # create a dictionary of terms or phrases used with classes
+        phrases = {f"class {c}({c2}):": f"Make a class named {c} that is a {c2}.",
+                   f"class {c}(object):\n\tdef __init__(self, {d}):": f"class {c} has a __init__ that takes self and {d}",
+                   f"class {c2}(object):\n\tdef {d2}(self, {d3}):":
+                       f"class {c2} has a function named {d2} that takes self and {d3}",
+                   f"{d} = {c}()": f"Set {d} to an instance of class {c}",
+                   f"{d2}.{d3}({d})": f"From {d2} get the function {d3} and call it with self and {d}",
+                   f"{d}.{d2} = {d3}": f"From {d} get attribute {d2} and set it to {d3}"}
+
+        # ask for input
+        a = input("In which order do you want do terms:\n1. Convert code to terms used\n2. Convert terms used to code\n>>>")
+
+        # create a list of keys from the phrases dictionary
+        key_values = list(phrases.keys())
+        random.shuffle(key_values)
+
+        if a == "1":
+
+            for snippet in key_values:
+                phrase = phrases[snippet]
+                question, answer = snippet, phrase
+                print(question)
+                input(">>>")
+                print(f"{answer}\n\n")
+
+        elif a == "2":
+            for snippet in key_values:
+                phrase = phrases[snippet]
+                question, answer = snippet, phrase
+                question, answer = answer, question
+                print(question)
+                input(">>>")
+                print(f"{answer}\n\n")
+
+        read_and_write_a_class()
+
+
+    def exit_testing():
+
+        """
+        Function for exiting the program
+        """
+
+        print("Keep revising!")
+
+        exit()
+
+
+    start()
